@@ -8,18 +8,16 @@
 </head>
 <body>
     <header>
-        <h1>Content Generation</h1>
+        <h1>Content Generator</h1>
     </header>
     <main>
         <form id="generate-form">
-            <textarea id="prompt" rows="5" placeholder="Enter your prompt..." required></textarea>
+            <input type="text" id="prompt" placeholder="Enter a prompt..." required />
             <button type="submit">Generate</button>
         </form>
         <div id="output">
             <h2>Generated Content:</h2>
-            <p id="generated"></p>
-            <h2>Tone:</h2>
-            <p id="tone"></p>
+            <p id="generated-content"></p>
         </div>
     </main>
     <script src="assets/generate.js"></script>
