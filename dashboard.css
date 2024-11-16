@@ -148,7 +148,7 @@ body {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%; /* Make it wider */
+  width: 50%; /* Make it wider */
 }
 
 .generate-post-btn {
@@ -156,7 +156,7 @@ body {
   background-color: #5271ff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
   cursor: pointer;
   font-size: 16px;
   display: flex;
@@ -172,3 +172,4 @@ body {
   font-size: 24px;
   margin-right: 10px;
 }
+
