@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summarize Content</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Content Summarization</h1>
+    </header>
+    <main>
+        <form id="summarize-form">
+            <textarea id="content" rows="10" placeholder="Paste your content here..." required></textarea>
+            <button type="submit">Summarize</button>
+        </form>
+        <div id="output">
+            <h2>Summary:</h2>
+            <p id="summary"></p>
+            <h2>Tone:</h2>
+            <p id="tone"></p>
+        </div>
+    </main>
+    <script src="assets/summarize.js"></script>
+</body>
+</html>
