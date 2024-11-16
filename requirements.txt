@@ -1,0 +1,5 @@
+flask
+textblob
+transformers
+sumy
+flask-sqlalchemy
