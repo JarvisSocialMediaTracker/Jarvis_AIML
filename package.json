@@ -1,0 +1,26 @@
+{
+  "name": "content-toolkit",
+  "version": "1.0.0",
+  "description": "A toolkit for summarization, tone analysis, content generation, and user sign-ups.",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server --port=3000",
+    "lint": "eslint .",
+    "build": "echo 'No build steps defined yet!'"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "live-server": "^1.2.2"
+  },
+  "keywords": [
+    "summarization",
+    "tone-analysis",
+    "content-generation",
+    "signup",
+    "javascript",
+    "web-development"
+  ]
+}
