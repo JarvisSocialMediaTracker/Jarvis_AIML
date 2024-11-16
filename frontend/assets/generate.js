@@ -1,35 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("generate-form");
     const promptInput = document.getElementById("prompt");
-    const outputElement = document.getElementById("generated-content");
+    const generatedOutput = document.getElementById("generated");
 
     form.addEventListener("submit", async (event) => {
-        event.preventDefault(); // Prevent page refresh
+        event.preventDefault(); // Prevent the form from reloading the page
 
         const prompt = promptInput.value.trim();
         if (!prompt) {
-            alert("Please enter a prompt to generate content!");
+            alert("Please provide a prompt for content generation!");
             return;
         }
 
-        // Placeholder logic for content generation
-        const generatedContent = generateContent(prompt);
+        try {
+            // Call the Python Flask API for content generation
+            const generatedText = await generateContent(prompt);
 
-        // Display the generated content
-        outputElement.textContent = generatedContent;
+            // Display the generated content
+            generatedOutput.textContent = generatedText;
+
+        } catch (error) {
+            alert("An error occurred while generating content: " + error.message);
+        }
     });
 
-    // Mock function to generate content
-    function generateContent(prompt) {
-        const examples = {
-            "greeting": "Hello! How can I assist you today?",
-            "joke": "Why don’t skeletons fight each other? They don’t have the guts.",
-            "quote": "The only limit to our realization of tomorrow is our doubts of today. - Franklin D. Roosevelt",
-        };
+    // Function to fetch generated content from the Python Flask API
+    async function generateContent(prompt) {
+        const response = await fetch("http://localhost:5001/generate", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ prompt }),
+        });
 
-        // Return example based on prompt keyword or default text
-        const keyword = prompt.toLowerCase();
-        return examples[keyword] || `Generated content for: "${prompt}"`;
+        if (!response.ok) {
+            throw new Error("Failed to generate content.");
+        }
+
+        const data = await response.json();
+        return data.generated_text; // Return the generated text from the API
     }
 });
-

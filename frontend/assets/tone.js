@@ -1,40 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("tone-form");
-    const contentInput = document.getElementById("content");
+    const textInput = document.getElementById("text");
     const toneOutput = document.getElementById("tone");
 
     form.addEventListener("submit", async (event) => {
-        event.preventDefault(); // Prevent page refresh
+        event.preventDefault(); // Prevent form from refreshing the page
 
-        const content = contentInput.value.trim();
-        if (!content) {
-            alert("Please paste content to analyze the tone!");
+        const text = textInput.value.trim();
+        if (!text) {
+            alert("Please provide some text to analyze!");
             return;
         }
 
-        // Placeholder logic for tone detection
-        const tone = analyzeTone(content);
+        try {
+            // Call the Flask API for tone analysis
+            const tone = await analyzeTone(text);
 
-        // Display the tone result
-        toneOutput.textContent = tone;
+            // Display the analyzed tone
+            toneOutput.textContent = `The tone of the text is: ${tone}`;
+
+        } catch (error) {
+            alert("An error occurred while analyzing the tone: " + error.message);
+        }
     });
 
-    // Mock function for tone analysis
-    function analyzeTone(content) {
-        const positiveWords = ["happy", "great", "excellent", "positive", "amazing"];
-        const negativeWords = ["sad", "bad", "terrible", "negative", "awful"];
+    // Function to fetch tone from the Python Flask API
+    async function analyzeTone(text) {
+        const response = await fetch("http://localhost:5002/analyze-tone", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ text }),
+        });
 
-        const words = content.toLowerCase().split(/\s+/);
-        const positiveCount = words.filter(word => positiveWords.includes(word)).length;
-        const negativeCount = words.filter(word => negativeWords.includes(word)).length;
-
-        if (positiveCount > negativeCount) {
-            return "Positive";
-        } else if (negativeCount > positiveCount) {
-            return "Negative";
-        } else {
-            return "Neutral";
+        if (!response.ok) {
+            throw new Error("Failed to analyze tone.");
         }
+
+        const data = await response.json();
+        return data.tone; // Return the tone from the API response
     }
 });
-
