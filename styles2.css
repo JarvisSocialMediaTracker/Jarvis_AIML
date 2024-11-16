@@ -11,27 +11,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 100vh;
-    overflow: hidden;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes up full height */
+    overflow-x: hidden;
 }
 
 /* Content Box */
 .content-box {
     background: white;
     width: 600px;
-    max-height: 80vh; /* Adjust max height to leave space for footer */
-    overflow-y: auto;  /* Enables scrolling when content exceeds container height */
+    max-height: 80vh; /* Allow content box to scroll if too long */
+    overflow-y: auto;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: left;
-    margin-bottom: 50px; /* Reduced space between content and footer */
+    margin-bottom: 30px; /* Space between content and footer */
 }
 
 /* Header */
 header {
-    position: fixed;
-    top: 0;
     width: 100%;
     background-color: white;
     padding: 15px;
@@ -61,27 +60,26 @@ header nav ul li a:hover {
 
 /* Content */
 main {
-    margin-top: 80px;  /* Offset for header */
+    margin-top: 80px;  /* Space for header */
     width: 100%;
     display: flex;
     justify-content: center;
+    flex: 1;
+    padding-bottom: 30px; /* Space to prevent overlap with footer */
 }
 
 /* Footer */
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 50%;
+    width: 100%;
     background-color: white;
-    padding: 5px 0; /* Reduced padding to make footer smaller */
+    padding: 10px 0; /* Reduced padding to make footer smaller */
     text-align: center;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 10;
 }
 
 footer p {
     color: #333;
-    font-size: 14px; /* Adjusted font size to match the smaller footer */
+    font-size: 14px; /* Adjusted font size */
 }
 
 footer a {
@@ -124,9 +122,5 @@ p {
     color: #333;
 }
 
-/* Ensure footer doesn't overlap content */
-main {
-    padding-bottom: 100px; /* Ensures content has space for footer */
-}
 
 
