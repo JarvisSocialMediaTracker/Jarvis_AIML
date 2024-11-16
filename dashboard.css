@@ -1,0 +1,174 @@
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5271ff;
+  color: white;
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu-icon {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Dropdown Menu (visible on hover) */
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  display: none; /* Hidden by default */
+  z-index: 20;
+}
+
+.menu-container:hover .dropdown-menu {
+  display: block; /* Show menu on hover */
+}
+
+.dropdown-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown-menu ul li {
+  padding: 10px;
+}
+
+.dropdown-menu ul li a {
+  text-decoration: none;
+  color: #5271ff;
+}
+
+.dropdown-menu ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.content {
+  display: flex;
+  margin-top: 60px; /* To make space for the fixed navbar */
+  padding: 20px;
+  gap: 20px;
+  width: 100%;
+  height: calc(100vh - 80px); /* Full height minus navbar height */
+  overflow: hidden; /* Prevents page scroll */
+}
+
+/* Notifications Box */
+.notifications-box {
+  width: 25%; /* Takes up 1/4th of the page */
+  height: 100%; /* Full height */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.notifications-box h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.notifications-box ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notifications-box li {
+  padding: 10px 0;
+}
+
+/* Recent Posts Box */
+.recent-activities {
+  width: 70%; /* Takes up 3/4th of the page */
+  height: 100%; /* Full height */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.recent-activities h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.activity-post {
+  margin-bottom: 20px;
+}
+
+.activity-post h3 {
+  font-size: 20px;
+}
+
+.activity-post p {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.activity-post img {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Generate Post Box */
+.generate-post {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* Make it wider */
+}
+
+.generate-post-btn {
+  padding: 15px 30px; /* Wider button */
+  background-color: #5271ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  width: 100%; /* Full width */
+}
+
+.generate-post-btn:hover {
+  background-color: #4a60e1;
+}
+
+.plus-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
