@@ -71,7 +71,7 @@ main {
 footer {
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 50%;
     background-color: white;
     padding: 5px 0; /* Reduced padding to make footer smaller */
     text-align: center;
