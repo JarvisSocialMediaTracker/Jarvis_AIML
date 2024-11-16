@@ -68,18 +68,22 @@ main {
     padding-bottom: 30px; /* Space to prevent overlap with footer */
 }
 
-/* Footer */
+/* Footer Positioned in the Corner */
 footer {
-    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
     background-color: white;
-    padding: 10px 0; /* Reduced padding to make footer smaller */
+    padding: 10px 20px; /* Add some padding for better readability */
     text-align: center;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    border-radius: 5px;
 }
 
 footer p {
+    margin: 0;
     color: #333;
-    font-size: 14px; /* Adjusted font size */
 }
 
 footer a {
@@ -121,6 +125,7 @@ p {
     margin: 15px 0;
     color: #333;
 }
+
 
 
 
