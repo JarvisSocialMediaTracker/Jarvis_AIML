@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
-from flask import flask-cors
+from flask_cors import CORS
 from summarizer import summarize
 from tone import analyze_tone
-from generator import generate_text
+from generator import generate_content
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for frontend compatibility
@@ -34,7 +34,7 @@ def generate_route():
     if not prompt:
         return jsonify({"error": "No prompt provided"}), 400
 
-    generated_content = generate_text(prompt)
+    generated_content = generate_content(prompt)
     return jsonify({"content": generated_content})
 
 if __name__ == "__main__":

@@ -24,3 +24,36 @@
     "web-development"
   ]
 }
+
+/*{
+  "name": "content-toolkit",
+  "version": "1.0.0",
+  "description": "A toolkit for summarization, tone analysis, content generation, and user sign-ups.",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server --port=3000",
+    "lint": "eslint .",
+    "build": "npm run clean && npm run copy-assets ",
+    "clean": "rm -rf dist/",
+    "copy-assets": "mkdir -p dist && cp -r index.html assets dist/",
+    "minify": "npx terser dist/assets/scripts.js -o dist/assets/scripts.min.js && npx cleancss dist/assets/styles.css -o dist/assets/styles.min.css"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "live-server": "^1.2.2",
+    "terser": "^5.20.0",
+    "clean-css-cli": "^5.5.0"
+  },
+  "keywords": [
+    "summarization",
+    "tone-analysis",
+    "content-generation",
+    "signup",
+    "javascript",
+    "web-development"
+  ]
+}*/
+

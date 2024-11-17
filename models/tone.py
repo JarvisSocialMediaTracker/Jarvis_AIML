@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="/c/Users/Shailshree Sinha/Documents/GitHub/Jarvis_AIML/templates/index.html")
 
 # Simple tone analysis function (using keyword matching)
 def analyze_tone(text):

@@ -3,7 +3,7 @@ from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lsa import LsaSummarizer
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="/c/Users/Shailshree Sinha/Documents/GitHub/Jarvis_AIML/templates/index.html")
 
 @app.route('/summarize', methods=['POST'])
 def summarize():

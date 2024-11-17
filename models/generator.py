@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify
 import random
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="/c/Users/Shailshree Sinha/Documents/GitHub/Jarvis_AIML/templates/index.html")
+
 
 # Placeholder content generation function
 def generate_content(prompt):
@@ -13,9 +14,10 @@ def generate_content(prompt):
         "Automation is transforming the way businesses operate and employees work.",
         "AI-driven solutions are enabling more efficient decision-making processes."
     ]
-    
+
     # Simulate content generation by combining prompt with random phrases
     return f"{prompt}: {random.choice(generated_phrases)}"
+
 
 @app.route('/generate', methods=['POST'])
 def generate():
@@ -26,7 +28,7 @@ def generate():
 
         if not prompt:
             return jsonify({"error": "Prompt is required!"}), 400
-        
+
         # Generate content based on the prompt
         generated_text = generate_content(prompt)
 
@@ -34,6 +36,7 @@ def generate():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5001)

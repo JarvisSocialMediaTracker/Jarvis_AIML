@@ -1,11 +1,11 @@
 from flask import Flask, request, jsonify, render_template
 from models.summarizer import summarize
 from models.tone import analyze_tone
-from models.generator import generate_text
-from database import add_user
+from models.generator import generate_content
+from models.database import add_user
 from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="/c/Users/Shailshree Sinha/Documents/GitHub/Jarvis_AIML/templates/index.html")
 CORS(app)  # Allow cross-origin requests (for local development)
 
 @app.route("/")
@@ -28,7 +28,7 @@ def generate_content():
     if "prompt" not in data:
         return jsonify({"error": "Prompt is required"}), 400
 
-    content = generate_text(data["prompt"])
+    content = generate_content(data["prompt"])
     tone = analyze_tone(content)
     return jsonify({"content": content, "tone": tone})
 
